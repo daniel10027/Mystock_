@@ -1,0 +1,42 @@
+{% load widget_tweaks %}
+
+<div class="modal-header">
+  <h3 class="modal-title">Detail Article</h3>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+
+  <div class="">
+    Nom:
+    {{ book.nom }}
+  </div>
+  <div class="">
+    Categorie:
+    {{ book.categorie }}
+  </div>
+  <div class="">
+    Quantité:
+    {{ book.quantite }}
+    €
+  </div>
+  <div class="">
+    Actif:
+    {{ book.active }}
+  </div>
+  <div class="">
+    Enregistré le :
+    {{ book.created }}
+  </div>
+  <div class="">
+    Dernier modification :
+    {{ book.date_update }}
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

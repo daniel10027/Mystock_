@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include "_modal.html" %}
+
+<div class="wrapper">
+
+  <header class="main-header">
+    <div class="inside-header">
+      <div class="d-flex align-items-center logo-box justify-content-between">
+        <a href="index.html" class="logo">
+          <div class="logo-mini">
+            <span class="light-logo"><img src="{% static  'assets/img/logo.png' %}" alt="logo"></span>
+
+          </div>
+        </a>
+      </div>
+
+      <nav class="navbar navbar-static-top">
+
+        <div>
+          <a href="#" data-provide="fullscreen" class="sidebar-toggle d-lg-inline-flex d-none" title="Full Screen">
+            <i class="mdi mdi-crop-free"></i>
+          </a>
+
+        </div>
+
+        <div class="navbar-custom-menu r-side">
+          <ul class="nav navbar-nav">
+
+            <a href="#" data-toggle="control-sidebar" title="Setting"><i class="fa fa-cog fa-spin"></i></a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <div class="content-wrapper">
+    <div class="container-full">
+
+      <div class="content-header">
+        <h3>
+          Tableau de bord
+          <small>Panel de controle</small>
+        </h3>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+          <li class="breadcrumb-item active">Tableau de bord</li>
+        </ol>
+      </div>
+
+
+      <div class="row">
+        <div class="col-12">
+          <div class="box">
+            <div class="box-body">
+              <div class="row justify-content-between">
+                <div class="col-xxxl-4 col-xl-5 col-12">
+                  <div class="pl-md-30 pt-md-30 pr-md-80 pb-md-30 p-0">
+                    <h5 class="text-uppercase font-weight-700">Prooduit(s) actuel</h5>
+                    <h1 class="font-weight-900 text-dark mt-30">{{nb}}</h1>
+                    <p class="mb-50">{{cat}} Catégorie repertoriée(s)</p>
+                    <div class="d-md-flex d-block justify-content-between align-items-center">
+                      <div>
+                        <div class="d-flex align-items-center gap-items-3">
+                          <div class="w-70 h-70 bg-success-light rounded20 l-h-80 text-center">
+                            <i class="text-success ti-arrow-down font-size-24"></i>
+                          </div>
+                          <div>
+                            <h3 class="my-0 text-dark font-weight-700">{% now "d-M-Y" %}</h3>
+                            <p class="mb-0">Aujourd'hui</p>
+                          </div>
+                        </div>
+                        <a id="arrivage-create-book" class="btn btn-success mt-30 d-block mb-md-0 mb-30"
+                          style="color: white;"> Arrivage existant</a>
+
+
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center gap-items-3">
+                          <div class="w-70 h-70 bg-primary-light rounded20 l-h-80 text-center">
+                            <i class="text-primary ti-arrow-up font-size-24"></i>
+                          </div>
+                          <div>
+                            <h3 class="my-0 text-dark font-weight-700">{{s}} </h3>
+                            <p class="mb-0">Sortie(s)</p>
+                          </div>
+                        </div>
+                        <a id="sortie" class="btn btn-primary mt-30 d-block" style="color: white;"> Nouvelle Sortie</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xxxl-8 col-xl-7 col-12">
+                  <div class="row">
+
+                    {% for d in last  %}
+
+                    <div class="col-md-3 col-12">
+                      <div class="box bg-primary bg-brick-dark rounded30 mb-md-30 mt-30 mb-0">
+                        <div class="box-body">
+                          <div>
+                            <i class="cc XRP text-white" title="XRP"></i>
+                            <h4>{{d.nom}}</h4>
+                          </div>
+                          <div class="mt-150">
+                            <h3 class="font-weight-700">Quantité : {{d.arrivee}}</h3>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+    </div>
+
+
+    <div class="container-full">
+
+      <div class="content-header">
+        <h3>
+          Listes des elements enrégistrés
+        </h3>
+
+      </div>
+
+
+
+      <section class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="box">
+
+
+              <div class="box-body">
+                <p>
+                  <button id="create-book" class="btn btn-primary" type="button" name="button">
+                    <span class="fa fa-plus mr-2"></span>Nouvel Article
+                  </button>
+
+                <form method="GET"
+                  class="form-inline d-flex justify-content-center md-form form-sm active-purple active-purple-2 mt-2">
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                  <input class="form-control form-control-lg" type="text" placeholder="Chercher un article"
+                    aria-label="Search" name='q' value='{{ request.GET.q }}'>
+                </form>
+
+                </p>
+                <br>
+
+                <div class="table-responsive">
+
+                  {% include "_books_table.html" %}
+
+                </div>
+              </div>
+
+
+              <div class="box-body">
+                <p>
+
+
+
+                <h2>Historique des entrées</h2>
+
+                </p>
+                <div class="table-responsive">
+
+                  {% include "_arrivage_table.html" %}
+
+                </div>
+              </div>
+
+              <div class="box-body">
+                <p>
+
+
+
+                <h2>Historique des sorties</h2>
+
+                </p>
+                <div class="table-responsive">
+
+                  {% include "_sortie_table.html" %}
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function () {
+    // Log in & Sign up buttons
+    // The formURL is given explicitly
+    $("#login-btn").modalForm({
+      formURL: "{% url 'login' %}"
+    });
+
+    $("#signup-btn").modalForm({
+      formURL: "{% url 'signup' %}"
+    });
+
+    // Create book button opens modal with id="create-modal"
+    $("#create-book").modalForm({
+      formURL: "{% url 'create_book' %}",
+      modalID: "#create-modal"
+    });
+
+    $("#arrivage-create-book").modalForm({
+      formURL: "{% url 'arrivage_create_book' %}",
+      modalID: "#arrivage-create-modal"
+    });
+
+    $("#sortie").modalForm({
+      formURL: "{% url 'sortie' %}",
+      modalID: "#sortie-modal"
+    });
+
+    var asyncSuccessMessage = [
+      "<div ",
+      "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+      "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+      "Success: Book was updated.",
+      "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+      "<span aria-hidden='true'>&times;</span>",
+      "</button>",
+      "</div>",
+      "<script>",
+      "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+      "<\/script>"
+    ].join("");
+
+    function updateBookModalForm() {
+      $(".update-book").each(function () {
+        $(this).modalForm({
+          formURL: $(this).data("form-url"),
+          asyncUpdate: false,
+          asyncSettings: {
+            closeOnSubmit: true,
+            successMessage: asyncSuccessMessage,
+            dataUrl: "books/",
+            dataElementId: "#books-table",
+            dataKey: "table",
+            addModalFormFunction: updateBookModalForm
+          }
+        });
+      });
+    }
+    updateBookModalForm();
+
+    // Read and Delete book buttons open modal with id="modal"
+    // The formURL is retrieved from the data of the element
+    $(".bs-modal").each(function () {
+      $(this).modalForm({ formURL: $(this).data("form-url") });
+    });
+
+    // Hide message
+    $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+      $(".alert").slideUp(500);
+    });
+  });
+</script>
+{% endblock extrascripts %}

@@ -1,0 +1,50 @@
+<table id="books-table" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th class="text-center" scope="col">#</th>
+      <th>Nom de l'article</th>
+      <th>Catégorie</th>
+      <th>Quantités</th>
+      <th>Date enregistrement</th>
+    
+     
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in arrivage %}
+  
+    
+  
+      <tr>
+        <th class="text-center" scope="row">{{ forloop.counter }}</th>
+        <td class="text-center">{{ book.article.nom }}</td>
+        <td class="text-center">{{ book.article.categorie }}</td>
+        <td class="text-center">{{ book.quantite }}</td>
+        <td class="text-center">{{ book.created }}</td>
+      
+      </tr>
+      <td>
+  
+      </td>
+  
+      <td>
+        
+      </td>
+      {% empty %}
+      <tr>
+        <td colspan="10" class="text-center bg-warning">Rien pour le moment</td>
+      </tr>	
+    {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th class="text-center" scope="col">#</th>
+        <th>Nomde l'article</th>
+        <th>Catégorie</th>
+        <th>Quantités</th>
+        <th>Date enregistrement</th>
+       
+     
+      </tr>
+    </tfoot>
+  </table>
