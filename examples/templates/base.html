@@ -3,60 +3,119 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     {% block stylesheets %}
-      <!-- Bootstrap CSS -->
+
       <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-      <!-- Font awesome CSS -->
       <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
       <link rel="icon" href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/images/favicon.ico">
-
       <title>MyStock </title>
-    
-    
-      <link rel="stylesheet"
-        href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
-    
-    
-      <link rel="stylesheet"
-        href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
-    
-    
+      <link rel="stylesheet" href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
       <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
-    
-    
-      <link rel="stylesheet" type="text/css"
-        href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_components/datatable/datatables.min.css" />
-    
-    
+      <link rel="stylesheet" type="text/css" href="http://crypto-admin-templates.multipurposethemes.com/sass/horizontal/assets/vendor_components/datatable/datatables.min.css" />
       <link rel="stylesheet" href="{% static 'assets/css/horizontal-menu.css' %}">
       <link rel="stylesheet" href="{% static  'assets/css/style.css' %}">
-    
-    
       <link rel="stylesheet" href="{% static  'assets/css/skin_color.css' %}">
-      <!-- Custom CSS -->
+
+
+<style>
+  #tb{
+  
+    background-color:  #05184c;
+
+}
+table{
+ perspective: 200px;
+    width: 100%;
+    background-color:  #05184c;
+}
+th{
+    text-align: left;
+height: 5px;
+    font-weight: 800;
+    font-size: 20px;
+
+}
+th,td{
+
+    padding: 26px;
+
+}
+
+
+.z1{
+    color: cornflowerblue;
+    background-color: #05184c;;
+}
+.z2{
+  
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    font-size: 17px;
+    color: cornflowerblue;
+}
+
+tr:nth-child(even){
+
+    background-color: rgba(61, 61, 77, 0.56);
+
+}
+tr:nth-child(odd){
+
+    background-color:rgba(61, 61, 77, 0.4);
+
+}
+td{
+    color: #9d9d9d;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+td:hover{
+    transform: translate3d(6px ,2px ,0);
+color: black;
+    background-color: yellow;
+box-shadow: 1px 1px yellow,2px 2px yellow,3px 3px yellow;
+}
+.z2:hover{
+    transform: translate3d(6px ,2px ,0);
+    color: black;
+    background-color: yellow;
+    box-shadow: 1px 1px yellow,2px 2px yellow,3px 3px yellow;
+}
+tr,th{
+    cursor: pointer;
+}
+tr:hover{
+    background-color: rgba(255, 215, 0, 0.17);
+
+}
+</style>
 
     {% endblock stylesheets %}
-    <title>MyStock </title>
- 
-  </head>
 
-  <body class="layout-top-nav light-skin theme-classic">
+  <title>MyStock </title>
 
-   
+</head>
+
+
+<body class="layout-top-nav light-skin theme-classic">
     {% if messages %}
-    {% for message in messages %}
+          {% for message in messages %}
+
       <div style="border-radius:0;" {% if message.tags %} class="alert alert-icon alert-{{ message.tags }} alert-dismissible fade show mb-0" role="alert" {% endif %}>
         {{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-    {% endfor %}
+</div>
+
+         {% endfor %}
   {% endif %}
 
 
@@ -65,35 +124,34 @@
     {% endblock content %}
 
 
+
+
+
+
+
+
     {% block scripts %}
+
       <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
       <script src="{% static 'assets/js/popper.min.js' %}"></script>
       <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
       <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
-
-
-
-
-
-
-
       <script src="{% static 'stock/js/vendors.min.js' %}"></script>
-	<script src="https://www.amcharts.com/lib/4/core.js"></script>
-	<script src="{% static 'assets/js/jquery.smartmenus.js' %}"></script>
-	<script src="{% static 'assets/js/menus.js' %}"></script>
-
-	<script src="{% static 'assets/js/template.js' %}"></script>
-
-	<script src="{% static 'assets/js/form.js' %}"></script>
-	<script src="{% static 'assets/js/b.js' %}"></script>
-	<script src="{% static 'assets/js/p.js' %}"></script>
-<script src="{% static 'assets/js/pages/dashboard.js' %}"></script>
-<script src="{% static 'assets/js/pages/data-table.js' %}"></script>
-
+    	<script src="https://www.amcharts.com/lib/4/core.js"></script>
+    	<script src="{% static 'assets/js/jquery.smartmenus.js' %}"></script>
+    	<script src="{% static 'assets/js/menus.js' %}"></script>
+    	<script src="{% static 'assets/js/template.js' %}"></script>
+    	<script src="{% static 'assets/js/form.js' %}"></script>
+      <script src="{% static 'assets/js/b.js' %}"></script>
+      <script src="{% static 'assets/js/p.js' %}"></script>
+      <script src="{% static 'assets/js/pages/dashboard.js' %}"></script>
+      <script src="{% static 'assets/js/pages/data-table.js' %}"></script>
 
     {% endblock scripts %}
 
-    {% block extrascripts %}{% endblock extrascripts %}
+    {% block extrascripts %}
+    
+    {% endblock extrascripts %}
 
   </body>
 

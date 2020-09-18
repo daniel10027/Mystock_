@@ -1,12 +1,13 @@
-<table id="books-table" class="table table-bordered table-hover">
+<div id="tb">
+  <table id="books-table" class="table table-bordered table-hover">
     <thead>
     <tr>
-      <th class="text-center" scope="col">#</th>
-      <th>Nom de l'article</th>
-      <th>Catégorie</th>
-      <th>Quantités</th>
-      <th>Date de sortie</th>
-      <th width="40%" >Motif</th>
+      <th class="text-center z1" scope="col">N°</th>
+      <th class="z1">Nom de l'article</th>
+      <th class="z1">Catégorie</th>
+      <th class="z1">Quantités</th>
+      <th class="z1">Date de sortie</th>
+      <th width="40%" class="z1 text-center"  >Motif</th>
     
      
     </tr>
@@ -17,37 +18,21 @@
     
   
       <tr>
-        <th class="text-center" scope="row">{{ forloop.counter }}</th>
-        <td class="text-center">{{ book.article.nom }}</td>
-        <td class="text-center">{{ book.article.categorie }}</td>
-        <td class="text-center">{{ book.quantite }}</td>
-        <td class="text-center">{{ book.created }}</td>
-        <td class="text-center" width="40%">{{ book.motif }}</td>
+        <th class="text-center z2" scope="row">{{ forloop.counter }}</th>
+        <td class="text-center z2">{{ book.article.nom | upper }}</td>
+        <td class="text-center z2">{{ book.article.categorie }}</td>
+        <td class="text-center z2">{{ book.quantite }}</td>
+        <td class="text-center z2">{{ book.created }}</td>
+        <td class="text-center z2" width="40%">{{ book.motif }}</td>
       
       </tr>
-      <td>
   
-      </td>
-  
-      <td>
-        
-      </td>
       {% empty %}
       <tr>
         <td colspan="10" class="text-center bg-warning">Rien pour le moment</td>
       </tr>	
     {% endfor %}
     </tbody>
-    <tfoot>
-      <tr>
-        <th class="text-center" scope="col">#</th>
-        <th>Nomde l'article</th>
-        <th>Catégorie</th>
-        <th>Quantités</th>
-        <th>Date de sortie</th>
-        <th width="40%">Motif de sortie</th>
-       
-     
-      </tr>
-    </tfoot>
+    
   </table>
+</div>

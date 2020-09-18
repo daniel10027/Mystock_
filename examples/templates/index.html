@@ -163,7 +163,17 @@
                 </p>
                 <br>
 
-                <div class="table-responsive">
+                <div >
+                  <div style="text-align: center;">
+
+                    <h2 style="text-align: center;">Liste des produits</h2>
+
+                    <button   class="btn btn-primary" type="button" name="button">
+                      <span class="fa fa-print mr-2"></span>Imprimer
+                    </button>
+                    <br>
+                    <br>
+                  </div>
 
                   {% include "_books_table.html" %}
 
@@ -172,33 +182,33 @@
 
 
               <div class="box-body">
-                <p>
 
+                <div style="text-align: center;">
 
+                  <h2 style="text-align: center;">Liste des entrées</h2>
 
-                <h2>Historique des entrées</h2>
-
-                </p>
-                <div class="table-responsive">
-
-                  {% include "_arrivage_table.html" %}
-
+                  <button  class="btn btn-primary" type="button" name="button">
+                    <span class="fa fa-print mr-2"></span>Imprimer
+                  </button>
+                  <br>
+                  <br>
                 </div>
+                  {% include "_arrivage_table.html" %}
               </div>
 
               <div class="box-body">
-                <p>
+                <div style="text-align: center;">
 
+                  <h2 style="text-align: center;">Liste des sorties</h2>
 
-
-                <h2>Historique des sorties</h2>
-
-                </p>
-                <div class="table-responsive">
+                  <button class="btn btn-primary" type="button" name="button">
+                    <span class="fa fa-print mr-2"></span>Imprimer
+                  </button>
+                  <br>
+                  <br>
+                </div>
 
                   {% include "_sortie_table.html" %}
-
-                </div>
               </div>
 
             </div>
@@ -211,6 +221,7 @@
     </div>
 
   </div>
+  <div><h2 style="text-align: center;"> Tous droits réservés &copy; {% now 'Y' %} IIPEA</h2></div>
 </div>
 
 

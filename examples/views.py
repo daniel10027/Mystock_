@@ -39,7 +39,7 @@ class Index(generic.ListView):
 
                 Q(nom__icontains=query) |
                 Q(categorie__nom__icontains=query) |
-                Q(quantite__icontains=query)
+                Q(quantite__icontains=(query))
               
             )
         else:

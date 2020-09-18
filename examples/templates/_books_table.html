@@ -1,50 +1,35 @@
-<table id="books-table" class="table table-bordered table-hover">
-  <thead>
-  <tr>
-    <th class="text-center" scope="col">#</th>
-    <th>Nom de l'article</th>
-    <th>Catégorie</th>
-    <th>Quantités</th>
-    <th>Date enregistrement</th>
-    <th>Dernieres modification</th>
-   
-  </tr>
-  </thead>
-  <tbody>
-  {% for book in books %}
-
+<div id="tb" >
+  <table id="books-table" class="table table-bordered table-hover">
+    <thead>
+    <tr>
   
-
-    <tr>
-      <th class="text-center" scope="row">{{ forloop.counter }}</th>
-      <td class="text-center">{{ book.nom }}</td>
-      <td class="text-center">{{ book.categorie }}</td>
-      <td class="text-center">{{ book.arrivee }}</td>
-      <td class="text-center">{{ book.created }}</td>
-      <td class="text-center">{{ book.date_update }}</td>
+      <th class="text-center z1" scope="col">N°</th>
+      <th class="z1">Nom de l'article</th>
+      <th class="z1">Catégorie</th>
+      <th class="z1">Quantités</th>
+      <th class="z1">Date enregistrement</th>
+      <th class="z1">Dernieres modification</th>
+     
     </tr>
-    <td>
-
-    </td>
-
-    <td>
-      
-    </td>
-    {% empty %}
-    <tr>
-      <td colspan="10" class="text-center bg-warning">Rien pour le moment</td>
-    </tr>	
-  {% endfor %}
-  </tbody>
-  <tfoot>
-    <tr>
-      <th class="text-center" scope="col">#</th>
-      <th>Nomde l'article</th>
-      <th>Catégorie</th>
-      <th>Quantités</th>
-      <th>Date enregistrement</th>
-      <th>Dernieres modification</th>
-   
-    </tr>
-  </tfoot>
-</table>
+    </thead>
+    <tbody>
+    {% for book in books %}
+  
+    
+  
+      <tr>
+        <th class="text-center z2" scope="row">{{ forloop.counter }}</th>
+        <td class="text-center z2">{{ book.nom | upper}}</td>
+        <td class="text-center z2">{{ book.categorie }}</td>
+        <td class="text-center z2">{{ book.arrivee }}</td>
+        <td class="text-center z2">{{ book.created }}</td>
+        <td class="text-center z2">{{ book.date_update }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="10" class="text-center bg-warning">Rien pour le moment</td>
+      </tr>	
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

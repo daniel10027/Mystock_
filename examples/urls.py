@@ -1,9 +1,11 @@
 from django.urls import path
-
+from django.contrib.auth import views as auth_views
 from . import views
 
 
 urlpatterns = [
+
+   
     path('', views.Index.as_view(), name='index'),
 
     path('filter/', views.BookFilterView.as_view(), name='filter_book'),
