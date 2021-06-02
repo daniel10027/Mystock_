@@ -1,7 +1,19 @@
 =======================================================
 MYSTOCK STOCK MANAGEMENT APPS DJANGO AJAX WITH R-REPORT
-
-BY LE CONSURTUIM
 =======================================================
 
+
+1- Create your virtual environments 
+2- pip install -r requirements.txt
+3- python manage.py makemigrations
+4- python manage.py migrate
+5- python manage.py createsuperuser
+6- python manage.py runserver
+
+
+=======================================================
+DANIEL10027 - PHENIX497 - OSORIS& CO
+=======================================================
+https://daniel-guedegbe.herokuapp.com
+=======================================================
 
